@@ -1,0 +1,35 @@
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+
+.logo {
+    font-size: 1.55rem;
+  font-family: "Merriweather", serif;
+
+    
+}
+#navbarNav ul li {
+    display:flex;
+    flex-direction: row;
+    float: right;
+    margin-right: 5px;
+    font-size: 1.2rem;
+    }
+
+.form{
+    width: 80%;
+    margin: 5% 10%;
+}
+.form h2{
+    background-color:#0d6efd;
+    text-align: center;
+    justify-content: center;
+    border: 1px solid #0d6efd;
+    border-radius: 5px;
+    font-weight: bold;
+
+
+
+}

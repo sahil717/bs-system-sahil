@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- * Bootstap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<!-- * FontAwsome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="crossorigin="anonymous" referrerpolicy="no-referrer" />
+    style
+        include ../static/transfar.css 
+body 
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand logo" href="/Aboutus">Basic Banking System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse navigation" id="navbarNav">
+                <ul class="navbar-nav navitem">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/allusers">All Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/transfar">Transfer History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Aboutus">About us</a>
+                    </li>
+
+                </ul>
+    </div>
+    </nav>
+    h2 Transfer History
+    <div id="table">
+        <table class="table">
+            <thead>
+                <tr class="head">
+                    <th scope="col">Sender</th>
+                    <th scope="col">Receiver </th>
+                    <th scope="col">Amount</th>
+                </tr>
+                    <tbody> 
+                        if records != 0
+                            each row in records 
+                                <tr class="element">
+                                    <td>#{row.senName}</td>
+                                    <td>#{row.recName}</td>
+                                    <td>#{row.trsAmount}</td> 
+                                </tr>
+                        else
+                            <tr class="element bg-warning text-danger">
+                                <td>No Records Found.</td>
+                            </tr>
+

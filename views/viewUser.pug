@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+<!--  FontAwsome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Custom CSS LINK  -->
+
+    style
+        include ../static/viewUser.css 
+
+    <title>View user</title>
+
+</head>
+
+<body>
+<!-- navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand logo" href="/Aboutus">Basic Banking System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse navigation" id="navbarNav">
+            <ul class="navbar-nav navitem">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/allusers">All Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/transfar">Transfer History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Aboutus">About us</a>
+                </li>
+
+        </ul>
+</div>
+</nav>
+
+<!--user detele -->
+
+    <div class="container  d-flex mt-1 custom_details_container">
+        <div class="d_left p-2">
+            <div class="container mt-3 bg-primary text-center ">
+                <h4 class="text-light  fw-bold p-2">User Details</h4>
+            </div>
+
+            <div class="container">
+                <div class="container text-center ">
+                    <i class="fas fa-user-tie border rounded p-4 user_ejs_icon "></i>
+                </div>
+</div>
+
+
+<!-- - details -->
+    <div class="container my-4 details">
+
+        if records.length
+        each row in records 
+            <tr class="element">
+                h4 Name : <td>#{row.name}</td>
+                h4 Mobile no : <td>#{row.mobile}</td>
+                h4 Email : <td>#{row.email}</td>
+                h4 Amount : <td>#{row.amount}</td>
+    </div>
+</div> 
+
+<!-- - Payment Details -->
+    <div class="d_right p-2">
+        <div class="container mt-3 bg-primary text-center "><h4 class="text-light  fw-bold p-2">Send Money </h4></div>
+        <div class="container my-4 mb-5">
+            <form action="/transferMoney" method="POST">
+                <div class="form-group my-3">
+                    <label for="exampleInputEmail1 fw-bold">From</label>
+                    each row in records 
+                        <input type="hidden" name="senId" value="#{row._id}"class="form-control fw-bold text-dark">
+                        <input type="hidden" name="senAmount" value="#{row.amount}"class="form-control fw-bold text-dark">
+                        <input type=" text" class="form-control fw-bold text-dark my-1" name="senName" value="#{row.name}" readonly>
+                        <input type=" text" class="form-control fw-bold text-dark my-1" name="senEmail" value="#{row.email}" readonly>
+                </div>
+                <div class="form-group my-3">
+                    <label for="exampleInputPassword1 fw-bold">To</label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="recName">
+                        <option>Select User</option>
+                            each e in alluser
+                                <option>#{e.name}</option> 
+                    </select>
+                </div>
+
+                <div class="form-group my-3">
+                    <select class="form-control" id="exampleFormControlSelect1" name="recEmail">
+                        <option>Select Email</option>
+                        each e in alluser
+                            <option>#{e.email }</option>
+
+                    </select>
+                </div>
+                <div class="form-group my-3">
+            <label for="exampleInputPassword1 fw-bold">Amount</label>
+            <input type="number" class="form-control fw-bold text-dark" name="recAmount" placeholder="Enter Amount" required>
+        </div>
+            <button type="submit" class="btn btn-primary my-3 ">Send</button>
+            </form>
+        </div>
+    </div>        
+
+        </div>
+
+
+
+    </div>
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"crossorigin="anonymous"></script>
+
+
+</body>

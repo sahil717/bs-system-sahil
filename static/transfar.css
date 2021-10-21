@@ -1,0 +1,9 @@
+h2{
+    text-align: center;
+    text-decoration: underline;
+    margin: 2rem;
+
+}
+table thead,table tbody{
+    text-align: center;
+}
